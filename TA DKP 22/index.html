@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kalkulator Bangun Ruang</title>
+    <link rel="stylesheet" href="styl2.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Kalkulator Bangun Ruang</h1>
+        <form action="result.php" method="post" >
+
+            <table>
+                <tr>
+                    <td><label for="bangun_ruang">Bangun Ruang</label></td>
+                    <td>
+                        <select name="bangun_ruang" id="bangun_ruang" onchange="hideoption(this)">
+                            <option value="kubus">Kubus</option>
+                            <option value="balok">Balok</option>
+                            <option value="tabung">Tabung</option>
+                        </select> 
+                    </td>
+                    <td><label for="rumus">Rumus</label></td>
+                    <td>
+                        <select name="rumus" id="rumus">
+                            <option value="Luas">Luas</option>
+                            <option value="Volume">Volume</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                <tr>
+                    
+
+                  <img src="https://i.pinimg.com/236x/96/e3/59/96e359ad42a77fc9ba68dc51330e3d80.jpg
+                        " alt="gambar kubus" class="src">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Cuboid_simple.svg/360px-Cuboid_simple.svg.png
+                        " alt="gambar balok" class="src">
+                    <img src="https://akupintar.id/documents/portlet_file_entry/20143/1+%288%29.png/78981bbc-9482-c8fe-17f8-d53578cd41c4?imagePreview=1" alt="gambar tabung" class="src">
+                </tr>
+                <tr id="sisi" style="display: block;">
+                    <td><label for="sisi">Sisi</label></td>
+                    <td><input type="number" name="sisi" id="sisi"></td>
+
+                </tr>
+                <tr id="panjang" style="display: none;">
+                    <td><label for="panjang">Panjang</label></td>
+                    <td><input type="number" name="panjang" id="panjang"></td>
+                </tr>
+                <tr id="lebar" style="display: none;">
+                    <td><label for="lebar">Lebar</label></td>
+                    <td><input type="number" name="lebar" id="lebar"></td>
+                </tr>
+                <tr id="tinggi" style="display: none;">
+                    <td><label for="tinggi">Tinggi</label></td>
+                    <td><input type="number" name="tinggi" id="tinggi"></td>
+                </tr>
+                <tr  id="jari" style="display: none;">
+                    <td><label for="jari_jari">Jari-jari</label></td>
+                    <td><input type="number" name="jari_jari" id="jari_jari"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="submit" value="Submit"></td>
+                </tr>
+                
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+<script>
+    function hideoption(option)
+    {
+        const sisi =document.getElementById("sisi");
+        const jari= document.getElementById("jari");
+        const tinggi = document.getElementById("tinggi");
+        const lebar = document.getElementById("lebar");
+        const panjang = document.getElementById("panjang");
+        if (option.value == "kubus") {
+            if (sisi.style.display === "none") {
+                sisi.style.display = "block";
+            } else {
+                sisi.style.display = "none";
+            }
+            tinggi.style.display = "none";
+                lebar.style.display = "none";
+                panjang.style.display = "none";
+                jari.style.display = "none";
+        } 
+        if (option.value == "balok") {
+            if (tinggi.style.display === "none" || panjang.style.display === "none" || lebar.style.display === "none") {
+                tinggi.style.display = "block";
+                lebar.style.display = "block";
+                panjang.style.display = "block";
+            } else {
+                tinggi.style.display = "none";
+                lebar.style.display = "none";
+                panjang.style.display = "none";
+            }
+            sisi.style.display = "none";
+            jari.style.display = "none";
+        }
+        if(option.value == "tabung"){
+            if (tinggi.style.display === "none" || jari.style.display === "none") {
+                tinggi.style.display = "block";
+                jari.style.display = "block";
+            } else {
+                tinggi.style.display = "block";
+                jari.style.display = "block";
+            }
+                lebar.style.display = "none";
+                panjang.style.display = "none";
+                sisi.style.display = "none";
+        }
+    }
+</script>
+</html>
